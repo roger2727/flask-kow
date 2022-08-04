@@ -4,15 +4,21 @@ import random
 from dir import whattodo
 
 app = Flask(__name__)
-
+my_value = 0
 @app.route("/", methods=['GET', 'POST'])
 def index():
+
     return render_template('index.html')
+
 
 @app.route("/forward/", methods=['GET', 'POST'])
 def move_forward():
+        if request.method == 'POST':           
+         global my_value
+         my_value = request.form['quantity']
+         print(my_value)
     #Moving forward code
-    return render_template('game.html')
+        return render_template('game.html')
 count=0
 @app.route("/play/", methods=['POST'])
 def play():
@@ -20,12 +26,12 @@ def play():
     print(count)
     count += 1
     
-    if count == 3:
+    if count == 20:
         count=0
         return redirect("http://127.0.0.1:5000/endgame/", code=302)
    
     #Moving forward code
-    return render_template('game.html',rand=random.randint(1,10),words=random.choice(whattodo),new=count)
+    return render_template('game.html',rand=random.randint(1,int(my_value)),words=random.choice(whattodo),new=count)
 
 
 @app.route("/endgame/", methods=['GET', 'POST'])
