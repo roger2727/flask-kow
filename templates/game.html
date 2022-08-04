@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/gamestyle.css" />
+  </head>
+  <body>
+    <div class="container">
+      <img class="pic" src="/static/game-logo.png" />
+
+      <div class="row">
+        <div class="box">
+          <form class="form-horizontal" action="/play/" method="post">
+            <button class="btn" name="forwardBtn" type="submit">PLAY</button>
+            <h1>{{rand}}</h1>
+
+            <p>{{words}}</p>
+          </form>
+
+          <p class="text">Can you survive 20 rounds.</p>
+          <p class="rounds">Round: {{new}}</p>
+
+          <!-- ************************************************************************************************ -->
+        </div>
+      </div>
+    </div>
+
+    <script></script>
+  </body>
+</html>

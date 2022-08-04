@@ -1,0 +1,13 @@
+whattodo= ["Down 1  shot",
+    "Everyone downs 1 shot",
+    "Eat 2 x wings",
+    "Choose a friend to do a shot",
+    "Have a drink",
+    "Finish your drink",
+    "Skip wings",
+    "Everyone take a drink",
+    "Have a drink",
+    "Have a drink",
+    "Have a drink",
+    "Have a drink",
+    "Choose a friend to take your wings"]
