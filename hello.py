@@ -1,10 +1,16 @@
 from crypt import methods
+from threading import Timer
 from flask import Flask, render_template, Response, request, redirect, url_for
 import random
 from dir import whattodo
+import time
+
 
 app = Flask(__name__)
+
 my_value = 0
+total_rounds=0
+
 @app.route("/", methods=['GET', 'POST'])
 def index():
 
@@ -17,21 +23,29 @@ def move_forward():
          global my_value
          my_value = request.form['quantity']
          print(my_value)
+         
+        if request.method == 'POST':           
+            global total_rounds
+            total_rounds = request.form['play']
+            print(type(total_rounds))
+            
+        
     #Moving forward code
         return render_template('game.html')
 count=0
-@app.route("/play/", methods=['POST'])
+@app.route("/play/", methods=['GET', 'POST'])
 def play():
+    
+    
     global  count
-    print(count)
     count += 1
     
-    if count == 20:
+    if int(count) == int(total_rounds)+1:
         count=0
         return redirect("http://127.0.0.1:5000/endgame/", code=302)
-   
+     
     #Moving forward code
-    return render_template('game.html',rand=random.randint(1,int(my_value)),words=random.choice(whattodo),new=count)
+    return render_template('game.html',rand=random.randint(1,int(my_value)),words=random.choice(whattodo),new=count,level=total_rounds)
 
 
 @app.route("/endgame/", methods=['GET', 'POST'])
@@ -40,8 +54,9 @@ def end():
 
 
 
-   
+     
 
+    
 
 
 

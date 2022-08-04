@@ -57,4 +57,21 @@ header {
   padding-top: 20px;
   text-align: center;
 }
-/* **************************************************************** */
+.game-setup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 18px;
+}
+#quantity {
+  font-size: 40px;
+  border: solid 1px;
+  margin: 20px;
+  text-align: center;
+}
+#play {
+  font-size: 40px;
+  border: solid 1px;
+  margin: 20px;
+  text-align: center;
+}

@@ -14,14 +14,16 @@
       <div class="row">
         <div class="box">
           <form class="form-horizontal" action="/play/" method="post">
-            <button class="btn" name="forwardBtn" type="submit">PLAY</button>
-            <h1>{{rand}}</h1>
+            <button class="button-85" name="forwardBtn" type="submit">
+              LETS GO!
+            </button>
 
-            <p>{{words}}</p>
+            <h3 class="rando">You got hot sauce number: {{rand}}</h3>
+
+            <h3 class="instruction">{{words}}</h3>
           </form>
 
-          <p class="text">Can you survive 20 rounds.</p>
-          <p class="rounds">Round: {{new}}</p>
+          <p class="rounds">Round: {{new}} of {{level}}</p>
 
           <!-- ************************************************************************************************ -->
         </div>
