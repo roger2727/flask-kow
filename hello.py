@@ -1,4 +1,5 @@
 from crypt import methods
+import os
 from threading import Timer
 from flask import Flask, render_template, Response, request, redirect, url_for
 import random
@@ -17,7 +18,7 @@ def index():
     return render_template('index.html')
 
 if __name__ == "__main__":
-    app.run(debug=False,host='0.0.0.0')
+    app.run(port=int(os.environ.get("PORT", 8080)),host='0.0.0.0',debug=True)
 
 @app.route("/forward/", methods=['GET', 'POST'])
 def move_forward():
