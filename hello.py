@@ -22,6 +22,8 @@ if __name__ == "__main__":
 
 @app.route("/forward/", methods=['GET', 'POST'])
 def move_forward():
+    
+    
         if request.method == 'POST':           
          global my_value
          my_value = request.form['quantity']
@@ -35,6 +37,9 @@ def move_forward():
         
     #Moving forward code
         return render_template('game.html')
+if __name__ == "__main__":
+        app.run(port=int(os.environ.get("PORT", 8080)),host='0.0.0.0',debug=True)
+
 count=0
 @app.route("/play/", methods=['GET', 'POST'])
 def play():
@@ -46,14 +51,23 @@ def play():
     if int(count) == int(total_rounds)+1:
         count=0
         return redirect("http://127.0.0.1:5000/endgame/", code=302)
+    
      
     #Moving forward code
     return render_template('game.html',rand=random.randint(1,int(my_value)),words=random.choice(whattodo),new=count,level=total_rounds)
+
+if __name__ == "__main__":
+    app.run(port=int(os.environ.get("PORT", 8080)),host='0.0.0.0',debug=True)
+
+
 
 
 @app.route("/endgame/", methods=['GET', 'POST'])
 def end():
     return render_template('endGame.html')
+
+if __name__ == "__main__":
+    app.run(port=int(os.environ.get("PORT", 8080)),host='0.0.0.0',debug=True)
 
 
 
