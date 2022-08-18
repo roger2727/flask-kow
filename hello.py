@@ -16,7 +16,8 @@ def index():
 
     return render_template('index.html')
 
-
+if __name__ == "__main__":
+    app.run(port=int(os.environ.get("PORT", 8080)),host='0.0.0.0',debug=True)
 
 @app.route("/forward/", methods=['GET', 'POST'])
 def move_forward():
@@ -35,7 +36,8 @@ def move_forward():
         
     #Moving forward code
         return render_template('game.html')
-
+if __name__ == "__main__":
+        app.run(port=int(os.environ.get("PORT", 8080)),host='0.0.0.0',debug=True)
 
 count=0
 @app.route("/play/", methods=['GET', 'POST'])
@@ -53,7 +55,8 @@ def play():
     #Moving forward code
     return render_template('game.html',rand=random.randint(1,int(my_value)),words=random.choice(whattodo),new=count,level=total_rounds)
 
-
+if __name__ == "__main__":
+    app.run(port=int(os.environ.get("PORT", 8080)),host='0.0.0.0',debug=True)
 
 
 
@@ -62,6 +65,8 @@ def play():
 def end():
     return render_template('endGame.html')
 
+if __name__ == "__main__":
+    app.run(port=int(os.environ.get("PORT", 8080)),host='0.0.0.0',debug=True)
 
 
 
