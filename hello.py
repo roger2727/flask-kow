@@ -8,6 +8,9 @@ from dir import whattodo
 
 app = Flask(__name__)
 
+if __name__ == "__main__":
+        app.run()
+
 my_value = 0
 total_rounds=0
 
